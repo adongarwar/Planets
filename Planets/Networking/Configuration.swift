@@ -29,7 +29,8 @@ struct Configuration {
 			url.append(queryItems: queryItems)
 			self.url = url
 		} else {
-			var urlComps = URLComponents(url: base, resolvingAgainstBaseURL: true)!
+			var urlComps = URLComponents(url: base, resolvingAgainstBaseURL: false)!
+			urlComps.path = path
 			urlComps.queryItems = queryItems
 			self.url = urlComps.url!
 		}
