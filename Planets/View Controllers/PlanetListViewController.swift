@@ -32,7 +32,7 @@ class PlanetListViewController: UITableViewController {
 
 extension PlanetListViewController: PlanetListViewModelDelegate {
 	// Refresh data
-	func planetListUpdated(planets: [PlanetCellModel]) {
+	func planetListUpdated() {
 		tableView.reloadData()
 	}
 	

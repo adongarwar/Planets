@@ -13,4 +13,8 @@ struct PlanetCellModel {
 	init(from planet: Planet) {
 		self.name = planet.name
 	}
+	
+	init(from planet: PlanetEntity) {
+		self.name = planet.planetName!
+	}
 }

@@ -21,6 +21,4 @@ struct MockResultsProvider: PlanetService {
 		config.protocolClasses = [MockURLProtocol.self]
 		client = NetworkClient(session: URLSession(configuration: config))
 	}
-	
-	
 }

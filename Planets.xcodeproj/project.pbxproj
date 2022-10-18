@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E11778B428FF27AD003F3CE3 /* Planets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E11778B228FF27AD003F3CE3 /* Planets.xcdatamodeld */; };
+		E11778B728FF27DC003F3CE3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11778B628FF27DC003F3CE3 /* CoreDataStack.swift */; };
+		E11778CA28FF3152003F3CE3 /* PlanetEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11778C828FF3152003F3CE3 /* PlanetEntity+CoreDataClass.swift */; };
+		E11778CB28FF3152003F3CE3 /* PlanetEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11778C928FF3152003F3CE3 /* PlanetEntity+CoreDataProperties.swift */; };
 		E131646328FB43710086C8CD /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E131645F28FB43710086C8CD /* AppError.swift */; };
 		E131646428FB43710086C8CD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E131646028FB43710086C8CD /* Endpoint.swift */; };
 		E131646528FB43710086C8CD /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E131646128FB43710086C8CD /* NetworkClient.swift */; };
@@ -54,6 +58,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E11778B328FF27AD003F3CE3 /* Planets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Planets.xcdatamodel; sourceTree = "<group>"; };
+		E11778B628FF27DC003F3CE3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		E11778C828FF3152003F3CE3 /* PlanetEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlanetEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E11778C928FF3152003F3CE3 /* PlanetEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlanetEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E131645F28FB43710086C8CD /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		E131646028FB43710086C8CD /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E131646128FB43710086C8CD /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -102,6 +110,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E11778B528FF27C0003F3CE3 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				E11778C828FF3152003F3CE3 /* PlanetEntity+CoreDataClass.swift */,
+				E11778C928FF3152003F3CE3 /* PlanetEntity+CoreDataProperties.swift */,
+				E11778B228FF27AD003F3CE3 /* Planets.xcdatamodeld */,
+				E11778B628FF27DC003F3CE3 /* CoreDataStack.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		E131645E28FB43550086C8CD /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +236,7 @@
 				E131646728FB437B0086C8CD /* View Controllers */,
 				E131646A28FB44390086C8CD /* View Models */,
 				E131648328FB6BC30086C8CD /* Table View Cells */,
+				E11778B528FF27C0003F3CE3 /* Core Data */,
 				E131647528FB4ED80086C8CD /* Services */,
 				E131646D28FB478E0086C8CD /* Entities */,
 				E131647628FB54580086C8CD /* Endpoints */,
@@ -341,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E11778CB28FF3152003F3CE3 /* PlanetEntity+CoreDataProperties.swift in Sources */,
 				E131647828FB54920086C8CD /* PlanetListEndpoint.swift in Sources */,
 				E131647D28FB59360086C8CD /* PlanetListService.swift in Sources */,
 				E131646328FB43710086C8CD /* AppError.swift in Sources */,
@@ -348,8 +369,11 @@
 				E131647F28FB63A50086C8CD /* PlanetListViewModel.swift in Sources */,
 				E131647328FB483C0086C8CD /* PlanetListResponse.swift in Sources */,
 				E1D208FE28FB422D000E8306 /* AppDelegate.swift in Sources */,
+				E11778B728FF27DC003F3CE3 /* CoreDataStack.swift in Sources */,
 				E131646F28FB479D0086C8CD /* PlanetCellModel.swift in Sources */,
 				E1D2090028FB422D000E8306 /* SceneDelegate.swift in Sources */,
+				E11778CA28FF3152003F3CE3 /* PlanetEntity+CoreDataClass.swift in Sources */,
+				E11778B428FF27AD003F3CE3 /* Planets.xcdatamodeld in Sources */,
 				E131646928FB43A60086C8CD /* PlanetListViewController.swift in Sources */,
 				E131646428FB43710086C8CD /* Endpoint.swift in Sources */,
 				E131646528FB43710086C8CD /* NetworkClient.swift in Sources */,
@@ -651,6 +675,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E11778B228FF27AD003F3CE3 /* Planets.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E11778B328FF27AD003F3CE3 /* Planets.xcdatamodel */,
+			);
+			currentVersion = E11778B328FF27AD003F3CE3 /* Planets.xcdatamodel */;
+			path = Planets.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E1D208F228FB422C000E8306 /* Project object */;
 }
