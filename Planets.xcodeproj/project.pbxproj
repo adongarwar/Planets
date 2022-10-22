@@ -77,8 +77,6 @@
 		E131648728FB8C020086C8CD /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		E131648928FB8C170086C8CD /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		E131648B28FB8E650086C8CD /* MockResultsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResultsProvider.swift; sourceTree = "<group>"; };
-		E131649428FB90B00086C8CD /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
-		E131649E28FB91220086C8CD /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		E13164A428FB93910086C8CD /* PlanetServiceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlanetServiceTests.h; sourceTree = "<group>"; };
 		E1D208FA28FB422D000E8306 /* Planets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Planets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D208FD28FB422D000E8306 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 				E131646228FB43710086C8CD /* Configuration.swift */,
 				E131646028FB43710086C8CD /* Endpoint.swift */,
 				E131645F28FB43710086C8CD /* AppError.swift */,
-				E131649E28FB91220086C8CD /* Networking.h */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -201,20 +198,11 @@
 			path = "Mock Endpoints";
 			sourceTree = "<group>";
 		};
-		E131649328FB90B00086C8CD /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				E131649428FB90B00086C8CD /* Networking.h */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
 		E1D208F128FB422C000E8306 = {
 			isa = PBXGroup;
 			children = (
 				E1D208FC28FB422D000E8306 /* Planets */,
 				E1D2091328FB422D000E8306 /* PlanetsTests */,
-				E131649328FB90B00086C8CD /* Networking */,
 				E1D208FB28FB422D000E8306 /* Products */,
 			);
 			sourceTree = "<group>";

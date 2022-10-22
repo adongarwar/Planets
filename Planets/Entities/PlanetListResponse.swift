@@ -8,8 +8,8 @@
 import Foundation
 
 struct PlanetListResponse: Decodable {
-	let count : Int
-	let next : String?
-	let previous : String?
+	let count: Int
+	let next: String?
+	let previous: String?
 	let results: [Planet]
 }

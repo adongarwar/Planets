@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension PlanetEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<PlanetEntity> {
@@ -21,6 +20,6 @@ extension PlanetEntity {
 
 }
 
-extension PlanetEntity : Identifiable {
+extension PlanetEntity: Identifiable {
 
 }

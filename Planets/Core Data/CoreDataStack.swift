@@ -9,11 +9,11 @@ import CoreData
 
 class CoreDataStack {
 	private let modelName: String
-	
+
 	init(modelName: String) {
 		self.modelName = modelName
 	}
-	
+
 	private lazy var storeContainer: NSPersistentContainer = {
 		let container = NSPersistentContainer(name: self.modelName)
 		container.loadPersistentStores { _, error in
@@ -23,9 +23,9 @@ class CoreDataStack {
 		}
 		return container
 	}()
-	
+
 	lazy var managedContext: NSManagedObjectContext = self.storeContainer.viewContext
-	
+
 	func saveContext() {
 		guard managedContext.hasChanges else { return }
 		do {
@@ -37,12 +37,12 @@ class CoreDataStack {
 }
 
 class CoreDataStackManager {
-	
+
 	static let shared = CoreDataStackManager()
-	
+
 	lazy var coreDataStack: CoreDataStack = {
 		CoreDataStack(modelName: "Planets")
 	}()
-	
+
 	private init() { }
 }

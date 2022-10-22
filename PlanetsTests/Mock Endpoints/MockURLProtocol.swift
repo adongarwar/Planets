@@ -15,15 +15,15 @@ class MockURLProtocol: URLProtocol {
 														NSError(domain: "NetworkingError",
 																code: 1111,
 																userInfo: nil)]
-	
+
 	override class func canInit(with request: URLRequest) -> Bool {
 		return true
 	}
-	
+
 	override class func canonicalRequest(for request: URLRequest) -> URLRequest {
 		return request
 	}
-	
+
 	override func startLoading() {
 		if let path = request.url?.path {
 			if let mockData = MockURLProtocol.successMock[path] {
@@ -34,12 +34,12 @@ class MockURLProtocol: URLProtocol {
 		} else {
 			client?.urlProtocol(self, didFailWithError: MockSessionError.notSupported)
 		}
-		
+
 		client?.urlProtocolDidFinishLoading(self)
 	}
-	
+
 	override func stopLoading() {
-		
+
 	}
 }
 

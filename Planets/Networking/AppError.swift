@@ -14,22 +14,22 @@ public enum AppError: Error, CustomStringConvertible {
 	case networkError(Error)
 	case invalidEndpoint(String)
 	case unknown(Error?)
-	
+
 	public var description: String {
 		switch self {
-			case .keyMappingFailure(let message):
-				return "Json decoding error - \(String(describing: message)))"
-			case .noInternet:
-				return "No internet connection"
-			case .timedOut:
-				return "Connection timed out"
-			case .networkError(let code):
-				return "Network error with code \(code)"
-			case .unknown(let error):
-				let description = error?.localizedDescription ?? "Underlying error not available."
-				return "Unknown error - \(description)"
-			case .invalidEndpoint(let urlString):
-				return "Invalid endpint - \(urlString)"
+		case .keyMappingFailure(let message):
+			return "Json decoding error - \(String(describing: message)))"
+		case .noInternet:
+			return "No internet connection"
+		case .timedOut:
+			return "Connection timed out"
+		case .networkError(let code):
+			return "Network error with code \(code)"
+		case .unknown(let error):
+			let description = error?.localizedDescription ?? "Underlying error not available."
+			return "Unknown error - \(description)"
+		case .invalidEndpoint(let urlString):
+			return "Invalid endpint - \(urlString)"
 		}
 	}
 }
@@ -38,10 +38,10 @@ extension Error {
 	var appError: AppError {
 		if let decoderError = self as? DecodingError {
 			switch decoderError {
-				case .typeMismatch(_, let c), .valueNotFound(_, let c),
-						.keyNotFound(_, let c), .dataCorrupted(let c):
-					return .keyMappingFailure(message: c.debugDescription)
-				default:
+			case .typeMismatch(_, let error), .valueNotFound(_, let error),
+						.keyNotFound(_, let error), .dataCorrupted(let error):
+					return .keyMappingFailure(message: error.debugDescription)
+			default:
 					return .unknown(self)
 			}
 		} else if (self as? URLError)?.code == URLError.Code.notConnectedToInternet {
@@ -55,6 +55,3 @@ extension Error {
 		}
 	}
 }
-
-
-

@@ -16,4 +16,3 @@ struct PlanetListService: PlanetService {
 		PlanetListEndpoint(pageNumber: pageNumber).fetchData(completionHandler)
 	}
 }
-

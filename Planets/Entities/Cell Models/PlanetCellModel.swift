@@ -9,11 +9,11 @@ import Foundation
 
 struct PlanetCellModel {
 	let name: String
-	
+
 	init(from planet: Planet) {
 		self.name = planet.name
 	}
-	
+
 	init(from planet: PlanetEntity) {
 		self.name = planet.planetName!
 	}

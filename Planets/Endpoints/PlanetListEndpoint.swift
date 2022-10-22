@@ -12,7 +12,7 @@ struct PlanetListEndpoint: Endpoint {
 	typealias ResponseType = PlanetListResponse
 	let configuration: Configuration
 	let urlString = "https://swapi.dev"
-	
+
 	init(pageNumber: Int) {
 		configuration = Configuration(base: URL(string: urlString)!,
 									  path: "/api/planets/",

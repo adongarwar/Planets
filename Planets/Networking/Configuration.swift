@@ -16,14 +16,11 @@ enum Method: String {
 struct Configuration {
 	let method: Method
 	let url: URL
-	
-	init(method: Method = .get,
-		 base: URL,
-		 path: String,
-		 queryParams: [String: String] = [:]) {
+
+	init(method: Method = .get, base: URL, path: String, queryParams: [String: String] = [:]) {
 		self.method = method
 		let queryItems = queryParams.map({URLQueryItem(name: $0.key, value: $0.value)})
-		
+
 		if #available(iOS 16.0, *) {
 			var url = base.appendingPathComponent(path)
 			url.append(queryItems: queryItems)
