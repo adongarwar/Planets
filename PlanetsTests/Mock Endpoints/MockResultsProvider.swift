@@ -9,11 +9,21 @@ import Foundation
 @testable import Planets
 
 struct MockResultsProvider: PlanetService {
-	private let client: NetworkClient
-
-	func fetchPlanetList(pageNumber: Int, completionHandler: @escaping (Result<PlanetListResponse, AppError>) -> Void) {
-		PlanetListEndpoint(pageNumber: 1).fetchData(completionHandler)
+	func fetchPlanetList(pageNumber: Int, completionHandler: @escaping (Result<[PlanetCellModel], AppError>) -> Void) {
+		PlanetListEndpoint(pageNumber: pageNumber).fetchData { (result: (Result<PlanetListResponse, AppError>)) in
+			switch result {
+				case .success(let result):
+					let cellModels = result.results.compactMap({
+						PlanetCellModel(from: $0)
+					})
+					completionHandler(.success(cellModels))
+				case .failure(let error):
+					completionHandler(.failure(error))
+			}
+		}
 	}
+	
+	private let client: NetworkClient
 
 	init() {
 		let config = URLSessionConfiguration.ephemeral

@@ -29,7 +29,7 @@ class PlanetsTests: XCTestCase {
 
 				let planet = response.results[0]
 				XCTAssertEqual(planet.name, "Tatooine")
-				XCTAssertEqual(planet.rotation_period, "23")
+				XCTAssertEqual(planet.rotationPeriod, "23")
 				expectation.fulfill()
 			case .failure:
 				()
