@@ -18,7 +18,6 @@ class PlanetListViewModel {
 	weak var delegate: PlanetListViewModelDelegate?
 	// The datasource to serve Views
 	private(set) var planets: [PlanetCellModel] = []
-	let managedContext = CoreDataStackManager.shared.coreDataStack.managedContext
 	let service: PlanetService
 
 	// To be used while implementing pagination
@@ -49,12 +48,8 @@ class PlanetListViewModel {
 	}
 
 	private func saveForOffline(_ planets: [Planet]) {
-		for planet in planets {
-			let planetEntity = PlanetEntity(context: managedContext)
-			planetEntity.setValue(planet.url, forKey: #keyPath(PlanetEntity.planetUrl))
-			planetEntity.setValue(planet.name, forKey: #keyPath(PlanetEntity.planetName))
-			CoreDataStackManager.shared.coreDataStack.saveContext()
-		}
+		let planetDetails = planets.map({($0.url, $0.name)})
+		SavedDataManager.shared.saveData(planetDetails)
 	}
 
 	private func handleError(_ error: AppError) {
@@ -63,20 +58,11 @@ class PlanetListViewModel {
 			return
 		}
 
-		do {
-			let planetsFetch: NSFetchRequest<PlanetEntity> = PlanetEntity.fetchRequest()
-			let results = try managedContext.fetch(planetsFetch)
-			guard results.count > 0 else {
-				delegate?.handle(error: error)
-				return
-			}
-			planets = results.compactMap({
-				PlanetCellModel(from: $0)
-			})
-			delegate?.planetListUpdated()
-		} catch let error as NSError {
-			print("Fetch error: \(error) description: \(error.userInfo)")
+		guard let savedPlanets = SavedDataManager.shared.getSavedData() else {
 			delegate?.handle(error: error)
+			return
 		}
+		planets = savedPlanets
+		delegate?.planetListUpdated()
 	}
 }

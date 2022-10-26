@@ -36,13 +36,40 @@ class CoreDataStack {
 	}
 }
 
-class CoreDataStackManager {
+class SavedDataManager {
 
-	static let shared = CoreDataStackManager()
+	static let shared = SavedDataManager()
 
 	lazy var coreDataStack: CoreDataStack = {
 		CoreDataStack(modelName: "Planets")
 	}()
 
 	private init() { }
+	
+	func saveData(_ planets: [(planetUrl: String, planetName: String)]) {
+		for planet in planets {
+			let planetEntity = PlanetEntity(context: managedContext)
+			planetEntity.setValue(planet.planetUrl, forKey: #keyPath(PlanetEntity.planetUrl))
+			planetEntity.setValue(planet.planetName, forKey: #keyPath(PlanetEntity.planetName))
+			SavedDataManager.shared.coreDataStack.saveContext()
+		}
+	}
+	
+	func getSavedData() -> [PlanetCellModel]? {
+		do {
+			let planetsFetch: NSFetchRequest<PlanetEntity> = PlanetEntity.fetchRequest()
+			let results = try managedContext.fetch(planetsFetch)
+			guard results.count > 0 else {
+				return nil
+			}
+			return results.compactMap({ PlanetCellModel(from: $0) })
+		} catch let error as NSError {
+			print("Fetch error: \(error) description: \(error.userInfo)")
+			return nil
+		}
+	}
+	
+	private var managedContext: NSManagedObjectContext {
+		return SavedDataManager.shared.coreDataStack.managedContext
+	}
 }
